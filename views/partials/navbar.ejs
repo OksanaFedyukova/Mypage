@@ -10,7 +10,7 @@
                 <a class="nav-link" href="/">Home</a>
 
 <!--                 <a class="nav-link" href="/projects/new">New project</a>
- -->           <a class="nav-link" href="/projects">About Me</a>
+ -->           <a class="nav-link" href="/aboutme">About Me</a>
  <a class="nav-link" href="/projects">Portfolio</a>
  <a class="nav-link" href="/projects">Skills</a>
  <a class="nav-link" href="/projects">Blog</a>
@@ -19,12 +19,9 @@
 
             </div>
             <div class="navbar-nav ml-auto">
-                <% if(!currentUser) {%>
                 <a class="nav-link" href="/login">Login</a>
                 <a class="nav-link" href="/register">Register</a>
-                <% } else {%>
                 <a class="nav-link" href="/logout">Logout</a>
-                <% } %>
             </div>
         </div>
     </div>
