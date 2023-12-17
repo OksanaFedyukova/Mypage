@@ -1,0 +1,36 @@
+body {
+  height: 100vh;
+  background: linear-gradient(rgba(16, 45, 75, 1), rgba(68, 221, 203, 1));
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+.cadr {
+  background-color: #ddd; 
+  padding: 5px; 
+  border-radius: 7px; 
+}
+.cover-container {
+  max-width: 60vw;
+  margin:auto
+}
+
+.btn-secondary {
+  background-color: rgba(16, 45, 75, 1);
+  border-color: rgba(16, 45, 75, 1); 
+}
+
+.btn-secondary:hover {
+  background-color: rgba(16, 45, 75, 0.8); 
+  border-color: rgba(16, 45, 75, 0.8);
+} 
+.btn-secondary:active {
+  background-color: rgba(16, 45, 75, 0.8); 
+  border-color: rgba(16, 45, 75, 0.8);
+}
+.btn-secondary:after {
+  background-color: rgba(16, 45, 75, 0.8); 
+  border-color: rgba(16, 45, 75, 0.8);
+}

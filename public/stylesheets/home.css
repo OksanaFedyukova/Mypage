@@ -1,8 +1,7 @@
 body {
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-/*     url("../images/332546139_606898487515754_5470887288805613306_n.jpg");
- */    
+
  url("../images/Diseño\ sin\ título\ \(8\).png");
 
  background-size: cover;
