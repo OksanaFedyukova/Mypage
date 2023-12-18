@@ -47,3 +47,24 @@ body {
   background-color: rgba(16, 45, 75, 0.8); 
   border-color: rgba(16, 45, 75, 0.8);
 }
+.nav-link {
+  padding: 0.25rem 0;
+  font-weight: 700;
+  color:  rgba(16, 45, 75, 0.8);
+  margin-left: 1rem;
+  border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover{
+  color:  rgba(16, 45, 75, 0.8);
+  border-bottom-color:rgba(255,255,255,0.5);
+}
+
+.nav-link.active {
+  color: #fff1de;
+  border-bottom-color:#fff1de;
+
+}
+.card-img {
+  z-index: -1;
+}

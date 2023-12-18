@@ -1,0 +1,70 @@
+
+  .card {
+    backdrop-filter: blur(5px); 
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px; 
+    border-radius: 7px; 
+    margin-bottom: 15px;
+  }
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .card {
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(1px);
+      background-color: rgba(255, 255, 255, 0.5);  
+    }
+  
+  
+  .cover-container {
+    max-width: 100vw;
+    margin:auto
+  }
+  
+  .btn-secondary {
+    margin-top: 20px;
+    margin-bottom: 0.5rem;
+    background-color: rgba(16, 45, 75, 1);
+    border-color: rgba(16, 45, 75, 1); 
+  }
+  
+  .btn-secondary:hover {
+    background-color: rgba(16, 45, 75, 0.8); 
+    border-color: rgba(16, 45, 75, 0.8);
+  } 
+  .btn-secondary:active {
+    background-color: rgba(16, 45, 75, 0.8); 
+    border-color: rgba(16, 45, 75, 0.8);
+  }
+  .btn-secondary:after {
+    background-color: rgba(16, 45, 75, 0.8); 
+    border-color: rgba(16, 45, 75, 0.8);
+  }
+  .nav-link {
+    padding: 0.25rem 0;
+    font-weight: 700;
+    color:  rgba(16, 45, 75, 0.8);
+    margin-left: 1rem;
+    border-bottom: 0.25rem solid transparent;
+  }
+  
+  .nav-link:hover{
+    color:  rgba(16, 45, 75, 0.8);
+    border-bottom-color:rgba(255,255,255,0.5);
+  }
+  
+  .nav-link.active {
+    color: #fff1de;
+    border-bottom-color:#fff1de;
+  
+  }
+  .container-contact {
+   
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../images/Diseño sin título (7).png");
+
+    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background-repeat: no-repeat;
+    border-radius: 8px;
+        padding: 25px;;
+}
+
