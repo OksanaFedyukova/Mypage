@@ -12,10 +12,40 @@
         </div>
 
         <div class="col-md-6">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h3>Leaveme a massege</h3>
-                </div>
+            <div class="card mb-3 p-4">         
+                <h5 class="card-title text-center my-2">Leave me a message</h5>
+                <form action="/email" method="POST" class="validated-form" novalidate>
+                                <div class="mb-3">
+                                    <label class="form-label" for="username">Your Name</label>
+                                    <input class="form-control" type="text" id="username" name="username" autofocus required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+        
+                                <div class="mb-3">
+                                    <label class="form-label" for="email">E-mail</label>
+                                    <input class="form-control" type="email" id="password" name="email" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="tema">Tema</label>
+                                    <input class="form-control" type="text" id="tema" name="tema" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>  <div class="mb-3">
+                                    <label class="form-label" for="message">Message</label>
+                                    <input class="form-control" type="text-area" id="message" name="message" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <button class="btn btn-secondary btn-block">Send</button>
+                            </form>
+                     
             </div>
         </div>
     </div>

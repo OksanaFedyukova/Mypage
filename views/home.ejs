@@ -1,70 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Oksana Fedyukova Software Developer</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-wjGjNdCA02D9l3U8bxCAYydHLlAxVbT9zCOyJSK2ueCrP28HUC4qEUZRYnfnhQXd" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha384-wjGjNdCA02D9l3U8bxCAYydHLlAxVbT9zCOyJSK2ueCrP28HUC4qEUZRYnfnhQXd"
+      crossorigin="anonymous"
+    />
+  </head>
 
-</head>
-
-<body class="d-flex text-left text-white bg-dark">
+  <body class="d-flex text-left text-white bg-dark">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
-            <div>
-                <h3 class="float-md-left mb-0">&lt;Oksana Fedyukova /&gt;
-                </h3>
-                <nav class="nav nav-masthead justify-content-center float-md-right">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="/aboutme">About Me</a>
-                    <a class="nav-link" href="/projects">Portfolio</a>
-                    <a class="nav-link" href="/skills">Skills</a>
-                    <a class="nav-link" href="/campgrounds">Blog</a>
-                    <a class="nav-link" href="/contact">Contact</a>
+      <header class="mb-auto">
+        <div>
+          <h3 class="float-md-left mb-0">&lt;Oksana Fedyukova /&gt;</h3>
+          <nav class="nav nav-masthead justify-content-center float-md-right">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="/aboutme">About Me</a>
+            <a class="nav-link" href="/projects">Portfolio</a>
+            <a class="nav-link" href="/skills">Skills</a>
+            <a class="nav-link" href="/campgrounds">Blog</a>
+            <a class="nav-link" href="/contact">Contact</a>
 
-                    <% if(!currentUser) { %>
-                    <a class="nav-link" href="/login">Login</a>
-                    <a class="nav-link" href="/register">Register</a>
-                    <% } else { %>
-                    <a class="nav-link" href="/logout">Logout</a>
-                    <% } %>
-                </nav>
-            </div>
-        </header>
-        <main class="px-3">
-            <h1>{Software  developer}</h1>
-            <h2 class="mt-4">Welcome to my digital space! <br> </h2>
-              <p class="lead mt-3">   Jump right in and explore my journey <br> 
-                 as a passionate FullStack developer
-                 <br>  in constant evolution.
-            </p>
-           
-                <a href="/aboutme" class="btn btn-lg btn-secondary font-weight-bold border-white bg-white">Get to Know Me</a>
-                
-                <a href="https://drive.google.com/file/d/1FSqHC-eyXqEbQqy6brG-QRNbmI1vErgU/view?usp=drive_link"
+            <% if(!currentUser) { %>
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/register">Register</a>
+            <% } else { %>
+            <a class="nav-link" href="/logout">Logout</a>
+            <% } %>
+          </nav>
+        </div>
+      </header>
+      
+      <main class="px-3">
+        <h2>Welcome to my digital space!</h2>
+        <div class="card">
+          <h1 class="mt-3" style="color: #333">{Software developer}</h1>
+        </div>
+        <h4 class="mt-3">
+          Jump right in and explore my journey <br />
+          as a passionate FullStack developer in constant evolution.
+        </h4>
+        <a
+          href="/aboutme"
+          class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
+          style="float: left"
+          >Get to Know Me</a
+        >
+      </main>
+      <!--   <a href="https://drive.google.com/file/d/1FSqHC-eyXqEbQqy6brG-QRNbmI1vErgU/view?usp=drive_link"
                  class="btn btn-lg btn-secondary font-weight-bold border-white bg-white "
-                  target="_blank">Download CV</a>
+                  target="_blank">Download CV</a> -->
 
-    </main>
-
-        <footer class="mt-auto text-white-50">
-            <p>oksana-fedyukova&copy;2023 </p>
-        </footer>
-
-
+      <footer class="mt-auto text-white-50">
+        <p>oksana-fedyukova&copy;2023</p>
+      </footer>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-        crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
