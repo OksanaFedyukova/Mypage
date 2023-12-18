@@ -17,7 +17,11 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
+const aboutmeRoutes = require('./routes/aboutme')
+const skillsRoutes = require('./routes/skills')
+const contactRoutes =require ('./routes/contact')
 const projectRoutes = require('./routes/projects');
+
 const reviewRoutes = require('./routes/reviews');
 
 const projectsData = require('./projects.json');
@@ -141,10 +145,7 @@ app.use((req, res, next) => {
     next();
 })
 
-
-/* app.use('/projects', projectRoutes);
- */app.get('/projects', (req, res) => {
-    console.log('Projects in route:', projectsData);
+app.get('/projects', (req, res) => {
     res.render('projects', { projects: projectsData });
 });
 
@@ -157,6 +158,12 @@ app.use('/campgrounds/:id/reviews', reviewRoutes);
 app.get('/', (req, res) => {
     res.render('home');
 });
+
+
+app.use('/aboutme', aboutmeRoutes );
+app.use('/skills', skillsRoutes );
+app.use('/contact', contactRoutes);
+
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
