@@ -12,8 +12,19 @@ const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const User = require('./models/user');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
+const userRoutes = require('./routes/users');
+const campgroundRoutes = require('./routes/campgrounds');
+const aboutmeRoutes = require('./routes/aboutme')
+const skillsRoutes = require('./routes/skills')
+const contactRoutes =require ('./routes/contact')
+const projectRoutes = require('./routes/projects');
+
+const reviewRoutes = require('./routes/reviews');
+
+const projectsData = require('./projects.json');
 
 const MongoDBStore = require("connect-mongo")(session);
 
@@ -111,7 +122,7 @@ app.use(
                 "'self'",
                 "blob:",
                 "data:",
-                "https://res.cloudinary.com/douqbebwk/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
+                "https://res.cloudinary.com/dltfaioyc/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
                 "https://images.unsplash.com",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
@@ -120,15 +131,38 @@ app.use(
 );
 
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    next();
+})
+
+app.get('/projects', (req, res) => {
+    res.render('projects', { projects: projectsData });
+});
 
 
 
-
-
+app.use('/', userRoutes);
+app.use('/campgrounds', campgroundRoutes);
+app.use('/campgrounds/:id/reviews', reviewRoutes);
 
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home');
 });
+
+
+app.use('/aboutme', aboutmeRoutes );
+app.use('/skills', skillsRoutes );
+app.use('/contact', contactRoutes);
 
 
 app.all('*', (req, res, next) => {

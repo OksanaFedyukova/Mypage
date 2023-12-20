@@ -5,7 +5,7 @@ const { cloudinary } = require("../cloudinary");
 
 module.exports.index = async (req, res) => {
     const projects = await Project.find({}).populate('popupText');
-    res.render('project/index', { projects })
+    res.render('projects/index', { projects })
 }
 
 module.exports.renderNewForm = (req, res) => {
