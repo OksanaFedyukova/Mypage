@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const aboutme = require('../controllers/aboutme');
+const blog = require('../controllers/blog');
 const catchAsync = require('../utils/catchAsync');
 
 
 router.route('/')
-    .get(catchAsync(aboutme.index))
+    .get(catchAsync(blog.index))
 
 
 
