@@ -7,22 +7,19 @@ body {
   overflow-x: hidden; 
 
 }
+
 h1{
   color: aliceblue;
 }
 .card {
   backdrop-filter: blur(5px); 
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(30, 26, 26, 0.389);
   padding: 10px; 
   border-radius: 7px; 
   margin-bottom: 15px;
+  color: aliceblue;
 }
-@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-  .card {
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(1px);
-    background-color: rgba(255, 255, 255, 0.5);  
-  }
+
 
 
 .cover-container {
@@ -73,14 +70,19 @@ h1{
 .card-img-about {
   width: 100%; 
   border-radius: 10px;
-  transition: transform 0.8s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  margin-bottom: 10px;
 }
 
 .card-img-about:hover {
     width: 100%; 
+    margin-top: 10px;
+    transform: scale(1.05);
   border-radius: 10px;
-  content: url("/images/DSC_9552.JPG"); 
-  transition: transform 0.8s ease-in-out;
+  content: url("/images/DSC_9555.JPG"); 
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .text-and-button {
@@ -97,3 +99,4 @@ h1{
 .read-more-show {
   max-height: 100%; 
 }
+

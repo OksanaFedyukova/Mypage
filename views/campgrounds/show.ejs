@@ -1,7 +1,9 @@
 <% layout('layouts/boilerplate')%>
 <link rel="stylesheet" href="/stylesheets/stars.css">
+<h1><%= campground.title%></h1>
+
 <div class="row">
-    <div class="col-6">
+    <div class="col-md-8">
         <div id="campgroundCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <% campground.images.forEach((img, i) => {  %>
@@ -21,34 +23,37 @@
                 <span class="sr-only">Next</span>
             </a>
             <% } %>
-        </div>
-
+</div>
         <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title"><%= campground.title%></h5>
-                <p class="card-text"><%= campground.description%></p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item text-muted"><%= campground.location%></li>
-                <li class="list-group-item">Submitted by <%= campground.author.username%></li>
-                <li class="list-group-item">$<%= campground.price%>/night</li>
-            </ul>
+                <p class="card-text">
+                    <%= campground.description%></p>
+            
+            <p class="card-text">
+                <%= campground.location%></p>
+                    <p class="card-text">
+                        Submitted by <%= campground.author.username%></p>
+                    <p class="card-text">
+                        <%= campground.tags%></p>
+                    </div>
+
             <%  if( currentUser && campground.author.equals(currentUser._id))  {%>
             <div class="card-body">
                 <a class="card-link btn btn-info" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
                 <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-warning">Delete</button>
                 </form>
             </div>
             <% } %>
-            <div class="card-footer text-muted">
-                2 days ago
+            <div class="card-footer">
+                <%= campground.dateVisited%>
             </div>
         </div>
 
     </div>
-    <div class="col-6">
-        <div id='map' ></div>
+    <div class="col-md-4">
+        <h2>Login and Leave a Review </h2>
 
         <% if(currentUser){ %>
         <h2>Leave a Review</h2>

@@ -20,15 +20,15 @@ const campgroundRoutes = require('./routes/campgrounds');
 const aboutmeRoutes = require('./routes/aboutme')
 const skillsRoutes = require('./routes/skills')
 const contactRoutes =require ('./routes/contact')
-const projectRoutes = require('./routes/projects');
+const blogRoutes =require ('./routes/blog')
 
 const reviewRoutes = require('./routes/reviews');
 
-const projectsData = require('./projects.json');
 
 const MongoDBStore = require("connect-mongo")(session);
 
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/portafolio';
+const dbUrl =  'mongodb://localhost:27017/portafolio';
+//const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/portafolio';
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
@@ -145,9 +145,6 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/projects', (req, res) => {
-    res.render('projects', { projects: projectsData });
-});
 
 
 
@@ -160,9 +157,12 @@ app.get('/', (req, res) => {
 });
 
 
+
+
 app.use('/aboutme', aboutmeRoutes );
 app.use('/skills', skillsRoutes );
 app.use('/contact', contactRoutes);
+app.use('/blog', blogRoutes);
 
 
 app.all('*', (req, res, next) => {
