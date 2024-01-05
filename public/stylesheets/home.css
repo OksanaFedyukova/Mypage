@@ -52,3 +52,8 @@ body {
     text-shadow: none;
 }
 
+@media only screen and (max-width: 600px) {
+    img[src="/images/My_PDF.png"] {
+        display: none;
+    }
+}

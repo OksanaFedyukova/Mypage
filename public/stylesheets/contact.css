@@ -55,11 +55,16 @@
   .container-contact {
    
    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("../images/Diseño sin título (7).png");
+        url("../images/imgcontact.png");
 
     text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         background-repeat: no-repeat;
     border-radius: 8px;
         padding: 25px;;
+}
+@media only screen and (max-width: 600px) {
+  img[src="/images/imgcontact.png"] {
+      display: none;
+  }
 }
