@@ -27,6 +27,7 @@ const reviewRoutes = require('./routes/reviews');
 
 const MongoDBStore = require("connect-mongo")(session);
 
+
 //const dbUrl =  'mongodb://localhost:27017/portafolio';
 const dbUrl = process.env.DB_URL;
 
@@ -55,7 +56,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(mongoSanitize({
     replaceWith: '_'
 }))
-const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
+const secret = process.env.SECRET || 'de01f9d2f479c38b2360508f1df8ccbb';
 
 const store = new MongoDBStore({
     url: dbUrl,
@@ -75,7 +76,7 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        secure: true,
+        //secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
