@@ -23,7 +23,7 @@
   
   .btn-danger:hover {
     color: aliceblue;
-    background-color: rgba(16, 45, 75, 0.8)
+    background-color: rgba(16, 45, 75, 0.8);
     border-color: rgba(16, 45, 75, 0.8)
   } 
   .btn-danger:active {
@@ -59,12 +59,13 @@
 
     text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        background-repeat: no-repeat;
+    background-repeat: no-repeat;
     border-radius: 8px;
-        padding: 25px;;
+    padding: 25px;;
 }
 @media only screen and (max-width: 600px) {
-  img[src="/images/imgcontact.png"] {
-      display: none;
+  .container-contact {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/Diseño\ sin\ título\ \(8\).png");
   }
 }
