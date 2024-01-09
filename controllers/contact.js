@@ -10,7 +10,12 @@ module.exports.sendEmail = async (req, res, next) => {
         service: 'gmail',
         auth: {
             user: process.env.USER_GMAIL,
-            pass: process.env.USER_PASS
+             pass: process.env.USER_PASS,
+        
+        },
+        secure: true,
+        tls: {
+            rejectUnauthorized: false
         }
     });
 
@@ -27,10 +32,11 @@ module.exports.sendEmail = async (req, res, next) => {
         await transporter.sendMail(mailOptions);
 
         req.flash('success', 'Email sent successfully.');
-        res.redirect('/contact');
+    //  res.status(200).json({ success: true,   message: 'Thank you for contacting me. I will get back to you soon. Meanwhile, you can DISCOVER my blogs',});
+       res.redirect('/contact'); 
     } catch (error) {
         console.error(error);
         req.flash('error', 'Error sending the email.');
-        res.redirect('/contact');
+        res.status(500).json({ success: false, error: 'Oooops Error sending the email. Please try again later or contact me via WhatsApp or avseniya22@gmail.com' });
     }
 };

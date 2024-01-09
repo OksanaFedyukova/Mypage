@@ -1,6 +1,7 @@
-if (process.env.NODE_ENV !== "production") {
+/* if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
-}
+} */
+require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
@@ -37,6 +38,7 @@ mongoose.connect(dbUrl, {
     useUnifiedTopology: true,
     useFindAndModify: false
 });
+
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
