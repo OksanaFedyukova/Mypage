@@ -32,7 +32,6 @@ module.exports.sendEmail = async (req, res, next) => {
         await transporter.sendMail(mailOptions);
 
         req.flash('success', 'Email sent successfully.');
-    //  res.status(200).json({ success: true,   message: 'Thank you for contacting me. I will get back to you soon. Meanwhile, you can DISCOVER my blogs',});
        res.redirect('/contact'); 
     } catch (error) {
         console.error(error);
