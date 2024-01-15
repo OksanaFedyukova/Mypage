@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Review = require('./review')
 const Schema = mongoose.Schema;
 
 
@@ -16,7 +15,7 @@ ImageSchema.virtual('thumbnail').get(function () {
 
 const opts = { toJSON: { virtuals: true } };
 
-const CampgroundSchema = new Schema({
+const ProjectSchema = new Schema({
     title: String,
     images: [ImageSchema],
     description: String,
@@ -25,13 +24,7 @@ const CampgroundSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    reviews: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Review'
-        }
     
-    ],
     dateVisited: {
             type: Date,
             default: Date.now,
@@ -44,15 +37,15 @@ const CampgroundSchema = new Schema({
 }, opts);
 
 
-CampgroundSchema.virtual('properties.popUpMarkup').get(function () {
+ProjectSchema.virtual('properties.popUpMarkup').get(function () {
     return `
-    <strong><a href="/campgrounds/${this._id}">${this.title}</a><strong>
+    <strong><a href="/projects/${this._id}">${this.title}</a><strong>
     <p>${this.description.substring(0, 20)}...</p>`
 });
 
 
 
-CampgroundSchema.post('findOneAndDelete', async function (doc) {
+ProjectSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
         await Review.deleteMany({
             _id: {
@@ -62,4 +55,4 @@ CampgroundSchema.post('findOneAndDelete', async function (doc) {
     }
 })
 
-module.exports = mongoose.model('Campground', CampgroundSchema);
+module.exports = mongoose.model('Project', ProjectSchema);
