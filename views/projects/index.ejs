@@ -1,0 +1,37 @@
+<% layout('layouts/boilerplate')%>
+<div class="container">
+  <h1>My Projects</h1>
+
+  <% for (let project of projects){%>
+  <div class="card mb-3">
+    <div class="row">
+      <div class="col-md-4">
+        <%if(project.images.length) {%>
+        <img class="img-fluid" alt="" src="<%=project.images[0].url%>" />
+        <% }else {%>
+        <img
+          class="img-fluid"
+          alt=""
+          src="https://res.cloudinary.com/dltfaioyc/image/upload/v1702465393/YelpCamp/332546139_606898487515754_5470887288805613306_n_jpv1le.jpg"
+        />
+        <% } %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= project.title %></h5>
+
+          <p class="card-text"><%= project.description %></p>
+          <p class="card-text">
+            <small class="text-muted"><%= project.location%></small>
+          </p>
+          <a class="btn btn-danger" href="/projects/<%=project._id%>">View</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }%>
+</div>
+<script>
+  const projects = { features: <%- JSON.stringify(projects) %>}
+</script>
+

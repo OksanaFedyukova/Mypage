@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Review = require('./review')
 const Schema = mongoose.Schema;
 
 
@@ -16,7 +15,7 @@ ImageSchema.virtual('thumbnail').get(function () {
 
 const opts = { toJSON: { virtuals: true } };
 
-const CampgroundSchema = new Schema({
+const projectSchema = new Schema({
     title: String,
     images: [ImageSchema],
     description: String,
@@ -25,13 +24,7 @@ const CampgroundSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    reviews: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Review'
-        }
-    
-    ],
+   
     dateVisited: {
             type: Date,
             default: Date.now,
@@ -41,25 +34,34 @@ const CampgroundSchema = new Schema({
                 type: String,
             },
         ],
+        linkDemo: {
+            type: String,
+            validate: {
+                validator: function (v) {
+                    return /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/.test(v);
+                },
+                message: 'Invalid URL format for linkDemo'
+            }
+        },
+        linkGitHub: {
+            type: String,
+            validate: {
+                validator: function (v) {
+                    return /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/.test(v);
+                },
+                message: 'Invalid URL format for linkGitHub'
+            }
+        }
 }, opts);
 
 
-CampgroundSchema.virtual('properties.popUpMarkup').get(function () {
+projectSchema.virtual('properties.popUpMarkup').get(function () {
     return `
-    <strong><a href="/campgrounds/${this._id}">${this.title}</a><strong>
+    <strong><a href="/projects/${this._id}">${this.title}</a><strong>
     <p>${this.description.substring(0, 20)}...</p>`
 });
 
 
 
-CampgroundSchema.post('findOneAndDelete', async function (doc) {
-    if (doc) {
-        await Review.deleteMany({
-            _id: {
-                $in: doc.reviews
-            }
-        })
-    }
-})
 
-module.exports = mongoose.model('Campground', CampgroundSchema);
+module.exports = mongoose.model('project', projectSchema);

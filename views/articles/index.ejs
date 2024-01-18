@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate')%>
+<div class="container">
+  <h1>My articles</h1>
+
+  <% for (let article of articles){%>
+  <div class="card mb-3">
+    <div class="row">
+      <div class="col-md-4">
+        <%if(article.images.length) {%>
+        <img class="img-fluid" alt="" src="<%=article.images[0].url%>" />
+        <% }else {%>
+        <img
+          class="img-fluid"
+          alt=""
+          src="https://res.cloudinary.com/dltfaioyc/image/upload/v1702465393/YelpCamp/332546139_606898487515754_5470887288805613306_n_jpv1le.jpg"
+        />
+        <% } %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= article.title %></h5>
+
+          <p class="card-text"><%= article.description.substring(0, 200) %>      
+            <span class="badge badge-primary" style="background-color: rgba(189, 98, 19, 0.718);" >...</span>
+        </p>
+          <p class="card-text">
+            <small class="text-muted"><%= article.location%></small>
+          </p>
+          <a class="btn btn-danger" href="/articles/<%=article._id%>">View</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }%>
+</div>
+<script>
+  const articles = { features: <%- JSON.stringify(articles) %>}
+</script>
+

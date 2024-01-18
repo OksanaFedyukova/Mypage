@@ -3,7 +3,7 @@ body {
     width: 100vw;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 
- url("../images/blog4.jpg");
+    url("https://images.unsplash.com/photo-1513553404607-988bf2703777?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 
  background-size: cover;
  background-position: center;
@@ -14,17 +14,34 @@ body {
 }
 
 .quote {
-  margin-top: 30%;
-  padding-bottom: 5px;
-    backdrop-filter: blur(5px); 
-    background-color: rgba(30, 26, 26, 0.389);
-    border-radius: 7px; 
+  margin-top: 5%;
+  padding-bottom: 2rem;
+  border-radius: 7px; 
+  display: flex;
+  flex-wrap: wrap; 
+}
+
+section {
+  flex: 1; 
+  border-radius: 7px; 
+
+  margin: 10px;
+  padding: 20px; 
+  backdrop-filter: blur(5px); 
+  background-color: rgba(30, 26, 26, 0.389);
+}
+
+@media (max-width: 768px) {
+  .quote {
+    flex-direction: column; 
   }
-  
-  
+}
+.img-blog {
+  width: 10rem;
+}
 
 .cover-container {
-  max-width: 60vw;
+  max-width: 80vw;
   margin:auto
 }
 

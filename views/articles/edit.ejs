@@ -1,0 +1,113 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+  <h1 class="text-center">Edit article</h1>
+  <div class="col-md-6 offset-md-3">
+    <form
+      action="/articles/<%=article._id%>?_method=PUT"
+      method="POST"
+      novalidate
+      class="validated-form"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="article[title]"
+          value="<%=article.title %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="article[location]"
+          value="<%=article.location %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+     
+      <div class="mb-3">
+        <label class="form-label" for="datevisited">Date Visited</label>
+        <input
+          class="form-control"
+          type="date"
+          id="datevisited"
+          name="article[dateVisited]"
+          value="<%=article.dateVisited %>"
+          required
+        />
+
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="tags">Tags </label>
+        <input
+          class="form-control"
+          type="text"
+          id="tags"
+          name="article[tags]"
+          value="<%=article.tags %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="article[description]"
+          required
+        >
+<%= article.description%></textarea
+        >
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <div class="form-file custom-file">
+          <input
+            type="file"
+            class="form-file-input"
+            id="image"
+            name="image"
+            multiple
+          />
+          <label class="form-file-label" for="image">
+            <span class="form-file-text custom-file-label"
+              >Add more image(s)...</span
+            >
+            <span class="form-file-button">Browse</span>
+          </label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <% article.images.forEach(function(img, i) { %>
+
+        <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="" />
+        <div class="form-check-inline">
+          <input
+            type="checkbox"
+            id="image-<%=i%>"
+            name="deleteImages[]"
+            value="<%=img.filename%>"
+          />
+        </div>
+        <label for="image-<%=i%>">Delete?</label>
+        <% })%>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-info">Update article</button>
+      </div>
+    </form>
+    <a href="/articles/<%= article._id%>">Back To article</a>
+  </div>
+</div>

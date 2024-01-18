@@ -1,7 +1,8 @@
-const { campgroundSchema, reviewSchema } = require('./schemas.js');
+const { projectSchema } = require('./schemas.js');
+const { articleSchema} = require('./schemas.js')
 const ExpressError = require('./utils/ExpressError');
-const Campground = require('./models/campground');
-const Review = require('./models/review');
+const Project = require('./models/project');
+const Article = require('./models/project');
 
 module.exports.isLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
@@ -12,8 +13,18 @@ module.exports.isLoggedIn = (req, res, next) => {
     next();
 }
 
-module.exports.validateCampground = (req, res, next) => {
-    const { error } = campgroundSchema.validate(req.body);
+module.exports.validateProject = (req, res, next) => {
+    const { error } = projectSchema.validate(req.body);
+    console.log(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400)
+    } else {
+        next();
+    }
+}
+module.exports.validateArticle = (req, res, next) => {
+    const { error } = articleSchema.validate(req.body);
     console.log(req.body);
     if (error) {
         const msg = error.details.map(el => el.message).join(',')
@@ -23,32 +34,34 @@ module.exports.validateCampground = (req, res, next) => {
     }
 }
 
-module.exports.isAuthor = async (req, res, next) => {
+
+module.exports.isProjectAuthor = async (req, res, next) => {
     const { id } = req.params;
-    const campground = await Campground.findById(id);
-    if (!campground.author.equals(req.user._id)) {
+    const project = await Project.findById(id);
+    if (!project.author.equals(req.user._id)) {
         req.flash('error', 'You do not have permission to do that!');
-        return res.redirect(`/campgrounds/${id}`);
+        return res.redirect(`/projects/${id}`);
     }
     next();
 }
 
-module.exports.isReviewAuthor = async (req, res, next) => {
-    const { id, reviewId } = req.params;
-    const review = await Review.findById(reviewId);
-    if (!review.author.equals(req.user._id)) {
-        req.flash('error', 'You do not have permission to do that!');
-        return res.redirect(`/campgrounds/${id}`);
-    }
-    next();
-}
 
-module.exports.validateReview = (req, res, next) => {
-    const { error } = reviewSchema.validate(req.body);
-    if (error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new ExpressError(msg, 400)
-    } else {
+module.exports.isArticleAuthor = async (req, res, next) => {
+    const { id } = req.params;
+    
+    try {
+        const article = await Article.findById(id);
+
+        // Check if article exists and has an author
+        if (!article || !article.author || !article.author.equals(req.user._id)) {
+            req.flash('error', 'You do not have permission to do that!');
+            return res.redirect(`/articles/${id}`);
+        }
+
         next();
+    } catch (err) {
+        console.error('Error fetching article:', err);
+        req.flash('error', 'Something went wrong');
+        res.redirect('/articles');
     }
 }
