@@ -17,22 +17,22 @@
     margin-top: 20px;
     color: aliceblue;
     margin-bottom: 0.5rem;
-    background-color:orangered;
-    border-color: orangered;
+    background-color:#ff7400;
+    border-color: #ff7400;
   }
-  
+
   .btn-danger:hover {
     color: aliceblue;
     background-color: rgba(16, 45, 75, 0.8);
     border-color: rgba(16, 45, 75, 0.8)
   } 
   .btn-danger:active {
-    background-color: orangered;
-    border-color:orangered;
+    background-color: #ff7400;
+    border-color:#ff7400;
   }
   .btn-danger:after {
-    background-color:orangered;
-    border-color: orangered;
+    background-color:#ff7400;
+    border-color: #ff7400;
   }
   .nav-link {
     padding: 0.25rem 0;
