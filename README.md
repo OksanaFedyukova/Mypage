@@ -1,5 +1,8 @@
 # Portfolio Readme
 [Visit my Portfolio](https://software-developer-oksana.onrender.com/)
+
+![GitHub Logo](https://github.com/OksanaFedyukova/Mypage/blob/main/public/images/Screenshot%202024-06-09%20155703.png)
+
 ## Overview
 
 Welcome to my Portfolio! This is a showcase of my skills, projects, and experiences. Here, you'll find information about me, the projects I've worked on, my technical and travel blogs, as well as a contact form to get in touch with me.
