@@ -17,8 +17,8 @@
     margin-top: 20px;
     color: aliceblue;
     margin-bottom: 0.5rem;
-    background-color:#ff7400;
-    border-color: #ff7400;
+    background-color:#e64d00;
+    border-color: #e64d00;
   }
 
   .btn-danger:hover {
@@ -27,12 +27,12 @@
     border-color: rgba(16, 45, 75, 0.8)
   } 
   .btn-danger:active {
-    background-color: #ff7400;
-    border-color:#ff7400;
+    background-color: #e64d00;
+    border-color:#e64d00;
   }
   .btn-danger:after {
-    background-color:#ff7400;
-    border-color: #ff7400;
+    background-color:#e64d00;
+    border-color: #e64d00;
   }
   .nav-link {
     padding: 0.25rem 0;
