@@ -1,7 +1,0 @@
-User-agent: *
-Disallow: /env
-Disallow: /node_modules
-Disallow: /contact-form
-Allow: /
-
-Sitemap: https://software-developer-oksana.onrender.com//sitemap.xml

@@ -48,20 +48,10 @@ module.exports.isProjectAuthor = async (req, res, next) => {
 
 module.exports.isArticleAuthor = async (req, res, next) => {
     const { id } = req.params;
-    
-    try {
-        const article = await Article.findById(id);
-
-        // Check if article exists and has an author
-        if (!article || !article.author || !article.author.equals(req.user._id)) {
+    const article = await Article.findById(id);
+ if (!article.author.equals(req.user._id)) {
             req.flash('error', 'You do not have permission to do that!');
             return res.redirect(`/articles/${id}`);
         }
-
         next();
-    } catch (err) {
-        console.error('Error fetching article:', err);
-        req.flash('error', 'Something went wrong');
-        res.redirect('/articles');
     }
-}
