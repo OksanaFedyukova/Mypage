@@ -18,7 +18,7 @@ router.get('/new', isLoggedIn, articles.renderNewForm)
 
 router.route('/:id')
     .get(catchAsync(articles.showArticle))
-    .put(isLoggedIn, isArticleAuthor, upload.array('image'), validateArticle, catchAsync(articles.updatearticle))
+    .put(isLoggedIn, isArticleAuthor, upload.array('image'), validateArticle, catchAsync(articles.updateArticle))
     .delete(isLoggedIn, isArticleAuthor, catchAsync(articles.deleteArticle));
 
 router.get('/:id/edit', isLoggedIn, isArticleAuthor, catchAsync(articles.renderEditForm))
